@@ -1,0 +1,736 @@
+% Non-Factorisability and the Emergence of Heisenberg Structure
+% from Admissibility Constraints
+% Cosmochrony companion paper — structural proof of F_n simeq V_rho
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{doi}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Non-Factorisability and the Emergence of Heisenberg Structure\\
+from Admissibility Constraints}
+
+\author{J\'er\^ome Beau\\
+\small Independent Researcher\\
+\small \texttt{jerome.beau@cosmochrony.org}}
+
+\date{2026}
+
+\begin{document}
+
+  \maketitle
+
+  \begin{abstract}
+    We prove that the admissibility axioms of the Cosmochrony framework,
+    together with Born--Infeld parity, uniquely determine the algebraic structure
+    of the admissible fibre $F_n$.
+    The central result is that any structure of observable directions that is
+    finite, minimal, and genuinely non-pre-resolved is necessarily of Heisenberg
+    type: the symmetry group of $F_n$ is isomorphic to
+    $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ for a prime $q$, and $F_n$ is
+    isomorphic to the Weil representation $V_\rho$ on $L^2(\mathbb{Z}/q\mathbb{Z})$.
+    The proof proceeds through a single structural lemma — admissible
+    non-factorisability — which is a direct formalisation of Axiom A3, and
+    requires no input beyond A1--A3, Born--Infeld parity, and classical
+    classification results.
+    As a corollary, the Heisenberg uncertainty principle is derived as a structural
+    property of the non-resolved proto-state, not as an independent postulate
+    about observables.
+    This paper provides the detailed proof of the result stated in
+    sketch form in the companion paper on admissible non-injective
+    transitions~\cite{Foundation}.
+  \end{abstract}
+
+  \paragraph{Keywords.}
+    Admissibility; non-factorisability; Heisenberg group; Weil representation;
+    Stone--von Neumann theorem; Born--Infeld parity; proto-state; uncertainty principle;
+    canonical quantisation; emergent quantum structure.
+
+    \clearpage
+    \tableofcontents
+    \clearpage
+
+  \section{Introduction}
+  \label{sec:intro}
+
+  The Cosmochrony programme~\cite{Cosmochrony} derives quantum structure from a
+  minimal relational foundation, without postulating a background spacetime,
+  a Hilbert space, or an external substrate.
+  Its primitive is the local structure of admissible transitions between
+  observable states, governed by four axioms.
+
+  The companion paper~\cite{Foundation} establishes that Axiom~A3 —
+  admissibility as non-premature selection — forces phase coherence and identifies
+  the admissible fibre $F_n$ as a precursor of Hilbert structure.
+  It states, as a structural remark, that $F_n$ is concretely realised as the
+  Weil representation $V_\rho$ of the discrete Heisenberg group
+  $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$.
+
+  The present paper provides the detailed proof of this identification.
+  The main result, Theorem~\ref{thm:main}, is:
+
+  \begin{quote}
+    \textit{Under A1--A3 and Born--Infeld parity, the symmetry group of $F_n$ is
+    isomorphic to $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ for some prime $q$,
+      and $F_n \simeq V_\rho$.}
+  \end{quote}
+
+  \noindent
+  The proof rests on a single structural lemma (Lemma~\ref{lem:non-factorisation}),
+  which formalises the prohibition on premature resolution encoded in A3.
+  Once this lemma is established, the rest of the argument is a chain of
+  classification steps: non-trivial commutator, central commutator, Heisenberg
+  algebra, prime order of the centre, and Stone--von Neumann identification.
+
+  \subsection*{Relation to companion papers}
+
+    This paper is a structural companion to~\cite{Foundation}, which states
+    Axioms A1--A4 and derives their consequences.
+    The non-abelian exclusion and quaternionic minimality used in
+    Remark~\ref{rem:nonabelian} are established in detail in~\cite{O23}.
+    The Born--Infeld parity involution $\sigma\colon c \mapsto q - c$ is derived
+    in~\cite{BornInfeld}.
+    The non-injectivity of $\Pi_n$ as a structural necessity is proved
+    in~\cite{ENI}.
+
+  \subsection*{Organisation}
+
+    Section~\ref{sec:setup} recalls the axiomatic setup and fixes notation.
+    Section~\ref{sec:lemma} establishes the admissible non-factorisability lemma.
+    Section~\ref{sec:main} proves the main theorem in five steps.
+    Section~\ref{sec:corollaries} derives the uncertainty principle and
+    other corollaries.
+    Section~\ref{sec:discussion} discusses the conceptual significance and
+    open directions.
+
+    \clearpage
+  \section{Setup and Notation}
+  \label{sec:setup}
+
+  We recall the axioms and fix the notation used throughout.
+  The full axiomatic development is given in~\cite{Foundation}.
+
+  \subsection{The four axioms}
+
+    \begin{description}
+      \item[\textbf{A1 — Local projective admissibility.}]
+      For any observable state $O_{n-1}$, there exists a non-empty set $F_n$ of
+      admissible successor directions.
+      The set $F_n$ is defined by internal structural constraints (Born--Infeld
+      bound, spectral envelope, symmetry requirements) and does not presuppose
+      an ambient configuration space.
+
+      \item[\textbf{A2 — Structural non-injectivity.}]
+      Distinct admissible directions from $O_{n-1}$ may lead to the same resolved
+      successor state $O_n$.
+
+      \item[\textbf{A3 — Admissibility as non-premature selection.}]
+      An admissible transition preserves the full multiplicity of open directions
+      until projection locking occurs.
+      It does not select among them prematurely — that is, before the
+      Born--Infeld saturation threshold is reached.
+
+      \item[\textbf{A4 — Projection locking.}]
+      Resolution occurs only when continuous Born--Infeld saturation meets the
+      discrete shell support of the observable space.
+    \end{description}
+
+  \subsection{The admissible fibre and its generators}
+
+    We assume throughout that the admissible fibre $F_n$ is finite-dimensional.
+    This follows from the Born--Infeld admissibility bound~\cite{BornInfeld}:
+    the constraint $A_n \leq c_\chi / \sqrt{\lambda_n}$ bounds the effective
+    amplitude of each mode, and only finitely many modes satisfy it at any
+    given cascade depth~$n$.
+
+    By A1, the admissible fibre $F_n$ is a non-empty set of admissible directions
+    from $O_{n-1}$.
+    It carries a group of symmetry transformations, whose generators are constrained
+    by the Born--Infeld bound and the spectral envelope.
+    We denote the symmetry group of $F_n$ by $G_n$; its action on $F_n$ is by
+    definition faithful.
+
+    Born--Infeld parity~\cite{BornInfeld} asserts that the BI action satisfies
+    $S_{\mathrm{BI}}[\chi] = S_{\mathrm{BI}}[-\chi]$, which forces the involution
+    $\sigma\colon c \mapsto q - c$ on the central character of the Weil
+    representation.
+    At the level of generators, this means: for every generator $X$ of $G_n$,
+    there is a conjugate generator $\sigma(X)$, the image of $X$ under $\sigma$.
+    By A1, no generator beyond the conjugate pair $(X, \sigma(X))$ is required
+    to generate the admissible symmetry group: the admissibility constraints —
+    BI bound, spectral envelope, and symmetry requirements — are entirely
+    encoded by the pair, and any additional independent generator would
+    constitute structure not forced by these constraints.
+    The pair $(X, \sigma(X))$ therefore forms the minimal admissible generating
+    set of $G_n$.
+
+    \begin{definition}[Stable decomposition]
+      \label{def:stable}
+      A direct sum decomposition $F_n = F^{(1)} \oplus F^{(2)}$ is called
+      \emph{stable} (under admissible generators) if both $F^{(1)}$ and $F^{(2)}$
+      are invariant under the action of every generator of $G_n$.
+    \end{definition}
+
+    \begin{definition}[Admissible resolution]
+      \label{def:resolution}
+      A direction $f \in F_n$ is \emph{admissibly resolved} if there exists a
+      stable decomposition $F_n = F^{(1)} \oplus F^{(2)}$ such that
+      $f \in F^{(1)}$ or $f \in F^{(2)}$, i.e.\ $f$ is assigned to a definite
+      sector prior to any Born--Infeld saturation event.
+    \end{definition}
+
+  \subsection{The Weil representation}
+
+    For a prime $q$ and a non-zero character $c \in (\mathbb{Z}/q\mathbb{Z})^\times$,
+    the discrete Heisenberg group
+    $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z}) = \{(a,b,\gamma) : a,b,\gamma \in \mathbb{Z}/q\mathbb{Z}\}$
+    with multiplication
+    $(a,b,\gamma)(a',b',\gamma') = (a+a',\, b+b',\, \gamma+\gamma'+ab')$
+    admits an irreducible representation of dimension $q$, the Weil representation
+    $\rho_c$, acting on $V_\rho = L^2(\mathbb{Z}/q\mathbb{Z}) \cong \mathbb{C}^q$ by
+    \begin{equation}
+      \bigl(\rho_c(a,b,\gamma)\,f\bigr)(x)
+      \;=\; e^{2\pi i c(\gamma + bx)/q}\,f(x - a).
+      \label{eq:weil}
+    \end{equation}
+    The central element $(0,0,1)$ acts as multiplication by $e^{2\pi ic/q} \neq 1$
+    (since $c \neq 0$), so the central character is non-trivial.
+
+    \clearpage
+  \section{The Admissible Non-Factorisability Lemma}
+  \label{sec:lemma}
+
+  The following lemma is the structural core of the proof.
+  It is a direct formalisation of Axiom A3.
+
+  \begin{lemma}[Admissible non-factorisability]
+    \label{lem:non-factorisation}
+    Under A1--A3, every stable decomposition of $F_n$ is trivial, i.e.\ one of
+    $F^{(1)}$ and $F^{(2)}$ must be $\{0\}$.
+    In particular, the action of $G_n$ on $F_n$ is irreducible.
+  \end{lemma}
+
+  \begin{proof}
+    Suppose $F_n = F^{(1)} \oplus F^{(2)}$ is a non-trivial stable decomposition,
+    with $F^{(1)} \neq \{0\}$ and $F^{(2)} \neq \{0\}$.
+    By Definition~\ref{def:stable}, both summands are invariant under every
+    generator of $G_n$.
+    Since the generators of $G_n$ are the constitutive elements of the
+    admissibility structure of $F_n$ (A1), the decomposition is distinguished
+    by the admissibility structure itself: the sector to which a direction $f$
+    belongs ($F^{(1)}$ or $F^{(2)}$) is determined by an invariant internal to $F_n$.
+
+    This constitutes an admissible resolution in the sense of
+    Definition~\ref{def:resolution}: each open direction carries a definite
+    sectorial label, accessible within the admissibility structure of $F_n$,
+    prior to any Born--Infeld saturation event.
+
+    A3 forbids premature selection among open directions: the transition must
+    remain structurally neutral among all elements of $F_n$ until projection
+    locking forces resolution.
+    An admissible resolution prior to locking is precisely what A3 prohibits.
+    Therefore the non-trivial stable decomposition is forbidden.
+
+    Irreducibility follows immediately: any proper $G_n$-invariant subspace
+    $W \subsetneq F_n$ with $W \neq \{0\}$ would yield a non-trivial stable
+    decomposition $F_n = W \oplus W^\perp$ (since $G_n$ acts unitarily, the
+    orthogonal complement of a $G_n$-invariant subspace is also $G_n$-invariant).
+    This contradicts the non-factorisability just proved.
+  \end{proof}
+
+  \begin{remark}[Lemma~\ref{lem:non-factorisation} as a restatement of A3]
+    \label{rem:restatement}
+    The content of Lemma~\ref{lem:non-factorisation} may be expressed as:
+    \begin{equation}
+      \text{proto-state genuinely non-resolved}
+      \;\Longleftrightarrow\;
+      F_n \text{ carries no admissible sectorial decomposition.}
+    \end{equation}
+    In this sense, the lemma is not an additional hypothesis: it is A3 rephrased
+    in the language of representation theory.
+  \end{remark}
+
+  \begin{remark}[Unitarity of the $G_n$ action]
+    \label{rem:unitarity}
+    The action of $G_n$ on $F_n$ is unitary.
+    This follows from the BI bound: admissible transformations preserve the
+    norm structure of $F_n$, since the BI saturation threshold is defined in
+    terms of mode amplitudes $\|f\|$~\cite{BornInfeld}.
+    Unitarity is used in the proof above to ensure that the orthogonal complement
+    of an invariant subspace is again invariant.
+  \end{remark}
+
+  \clearpage
+  \section{Proof of the Main Theorem}
+  \label{sec:main}
+
+  \begin{theorem}[A1--A3 and BI parity force Heisenberg structure]
+    \label{thm:main}
+    Under A1--A3 and Born--Infeld parity, the symmetry group $G_n$ of the
+    admissible fibre $F_n$ is isomorphic to $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$
+    for some prime $q$.
+    Consequently, $F_n$ is isomorphic to the Weil representation $V_\rho$ on
+    $L^2(\mathbb{Z}/q\mathbb{Z})$.
+  \end{theorem}
+
+  The proof proceeds in five steps.
+
+  \subsection{Step 1: Non-trivial commutator}
+
+    \begin{proposition}
+      \label{prop:commutator}
+      Under A1--A3, the conjugate generators $X$ and $\sigma(X)$ satisfy
+      $[X,\,\sigma(X)] \neq 0$.
+    \end{proposition}
+
+    \begin{proof}
+      Suppose $[X,\,\sigma(X)] = 0$.
+      Then $X$ and $\sigma(X)$ are commuting unitary operators on the
+      finite-dimensional space $F_n$.
+      By the spectral theorem for commuting normal operators, they admit a
+      simultaneous eigenspace decomposition:
+      \begin{equation}
+        F_n \;=\; \bigoplus_\lambda F_\lambda,
+      \end{equation}
+      where $F_\lambda$ is the common eigenspace for the pair of eigenvalues
+      $(x_\lambda,\, y_\lambda) \in \mathrm{U}(1)^2$ of $(X,\, \sigma(X))$.
+      This decomposition is non-trivial (since $X$ and $\sigma(X)$ are generators
+      of $G_n$, they are not scalar multiples of the identity by faithfulness of
+      the action).
+      Each summand $F_\lambda$ is invariant under $X$ and $\sigma(X)$, and hence,
+      since $(X,\, \sigma(X))$ is the minimal generating set of $G_n$ by A1, under
+      all of $G_n$.
+      Therefore the decomposition is stable.
+      By Lemma~\ref{lem:non-factorisation}, a non-trivial stable decomposition is
+      forbidden.
+      Contradiction.
+      Therefore $[X,\, \sigma(X)] \neq 0$.
+    \end{proof}
+
+  \subsection{Step 2: Central commutator}
+
+    \begin{proposition}
+      \label{prop:central}
+      Let $Z := [X,\,\sigma(X)]$.
+      Under A1, $Z$ is central in $G_n$.
+    \end{proposition}
+
+    \begin{proof}
+      Suppose $Z$ is not central.
+      Then there exists a generator $Y \in G_n$ such that $[Z,\, Y] \neq 0$.
+      The group generated by $(X,\, \sigma(X),\, Z,\, Y)$ is then strictly richer
+      than the group generated by the conjugate pair $(X,\, \sigma(X))$ alone: the
+      pair $(Z,\, Y)$ with $[Z,\, Y] \neq 0$ constitutes an independent non-abelian
+      sub-structure not generated by the commutator $Z = [X,\, \sigma(X)]$.
+      Concretely, the iterated commutator $[[X,\, \sigma(X)],\, Y]$ is non-trivial
+      and independent of the generators already present, so the derived series of
+      $G_n$ does not terminate at the subgroup $\langle Z \rangle$: the group is
+      not nilpotent of class~2 over the conjugate pair.
+      This produces a strictly larger derived subalgebra than that generated
+      by the pair $(X,\, \sigma(X))$ alone, contradicting the assumption that
+      all admissible relations are generated by this pair under A1.
+
+      By A1, $F_n$ is generated minimally by the conjugate pair $(X,\, \sigma(X))$:
+      the admissibility constraints force no generator beyond those required by
+      Born--Infeld parity, and the algebra of $G_n$ is entirely determined by the
+      BI-admissible structure of the pair.
+      An independent non-abelian sub-structure beyond what the pair generates would
+      constitute an internal structure of $F_n$ not determined by the admissibility
+      constraints, contradicting the minimality of A1.
+      Therefore $Z$ is central in $G_n$.
+    \end{proof}
+
+    \begin{remark}[Nilpotency class 2]
+      \label{rem:nilpotency}
+      Propositions~\ref{prop:commutator} and~\ref{prop:central} together imply
+      that $G_n$ is nilpotent of class exactly 2: the commutator subgroup is
+      $[G_n, G_n] = \langle Z \rangle$, which is central and non-trivial.
+      This is precisely the nilpotency class of the Heisenberg group.
+    \end{remark}
+
+  \subsection{Step 3: Classification as the Heisenberg algebra}
+
+    \begin{proposition}
+      \label{prop:heisenberg-algebra}
+      The group $G_n$ is isomorphic to a Heisenberg group.
+    \end{proposition}
+
+    \begin{proof}
+      By Propositions~\ref{prop:commutator} and~\ref{prop:central}, $G_n$ is a
+      group with:
+      \begin{enumerate}[(i)]
+      \item a generating pair $(X,\, \sigma(X))$ related by the involution $\sigma$;
+      \item a non-trivial central commutator $Z = [X,\, \sigma(X)]$;
+      \item no independent algebraic relation beyond those forced by minimality (A1).
+      \end{enumerate}
+      Condition~(iii) is made precise as follows: minimality (A1) excludes any
+      additional independent commutation relation beyond those generated by the
+      conjugate pair $(X,\, \sigma(X))$, so the only non-trivial relation in $G_n$
+      is $[X,\, \sigma(X)] = Z$ with $Z$ central.
+      Conditions (i)--(iii) mean that $G_n$ is a non-split central extension of the
+      abelian group $\langle X \rangle \times \langle \sigma(X)\rangle$ by the
+      cyclic group $\langle Z \rangle$, with the extension class determined by the
+      commutator pairing $(X,\, \sigma(X)) \mapsto Z$.
+      Since no additional relation is present, this is the \emph{universal} central
+      extension of $\langle X \rangle \times \langle \sigma(X)\rangle$ with the
+      given commutator.
+
+      The group cohomology classification of central extensions of
+      $\mathbb{Z}/q\mathbb{Z} \times \mathbb{Z}/q\mathbb{Z}$ by $\mathbb{Z}/q\mathbb{Z}$
+      is given by $H^2(\mathbb{Z}/q\mathbb{Z} \times \mathbb{Z}/q\mathbb{Z},\,
+      \mathbb{Z}/q\mathbb{Z}) \cong \mathbb{Z}/q\mathbb{Z}$~\cite{Brown1982},
+      generated by the class corresponding to the standard symplectic commutator
+      $[(a,0),\,(0,b)] = ab \bmod q$.
+      Up to automorphism of $(\mathbb{Z}/q\mathbb{Z})^2$, all non-degenerate
+      alternating bilinear forms are equivalent (since $q$ is prime, hence
+      $(\mathbb{Z}/q\mathbb{Z})^2$ is a two-dimensional symplectic space over
+      $\mathbb{F}_q$, and $\mathrm{Sp}(2, \mathbb{F}_q)$ acts transitively on
+      non-degenerate forms), yielding a unique non-split extension class.
+      The unique non-split extension (up to isomorphism) is the Heisenberg group:
+      \begin{equation}
+        G_n \;\cong\;
+        \mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})
+        \;=\;
+        \bigl\langle X,\, \sigma(X),\, Z \;\big|\;
+        [X,\, \sigma(X)] = Z,\; Z \text{ central},\;
+        X^q = \sigma(X)^q = Z^q = 1 \bigr\rangle.
+        \label{eq:heisenberg-presentation}
+      \end{equation}
+      The commutator defines a non-degenerate alternating bilinear form
+      $\omega \colon \langle X \rangle \times \langle \sigma(X) \rangle \to \langle Z \rangle$
+      by $\omega(X^a,\, \sigma(X)^b) = Z^{ab}$ on the generator space.
+      Non-degeneracy follows from $Z \neq 0$ and the fact that $X$ and $\sigma(X)$
+      are independent generators: $\omega(X, \cdot) \neq 0$ and
+      $\omega(\cdot,\, \sigma(X)) \neq 0$.
+      This form fixes the Heisenberg structure up to isomorphism.
+    \end{proof}
+
+  \subsection{Step 4: The order of $Z$ is prime}
+
+    \begin{proposition}
+      \label{prop:prime}
+      The order $|Z|$ of the central generator $Z$ is prime.
+      Hence $q$ in~\eqref{eq:heisenberg-presentation} is prime.
+    \end{proposition}
+
+    \begin{proof}
+      Write $|Z| = \prod_i p_i^{a_i}$ for the prime factorisation.
+      Suppose $|Z|$ is not prime.
+      Then the centre $\langle Z \rangle \cong \mathbb{Z}/|Z|\mathbb{Z}$ contains
+      at least one proper non-trivial subgroup, say $H = \langle Z^d \rangle$ for
+      some proper divisor $d > 1$ of $|Z|$.
+
+      Since $H$ is a subgroup of the centre $Z(G_n)$, it is normal in $G_n$.
+      The quotient map $\pi \colon G_n \to G_n/H$ induces a decomposition of any
+      $G_n$-representation via the characters of $H$.
+      More precisely, since $H$ acts as scalars (being central), Schur's lemma
+      implies that any irreducible $G_n$-representation on which $H$ acts trivially
+      factors through $G_n/H$, while any representation on which $H$ acts
+      non-trivially decomposes $F_n$ into $H$-eigenspaces:
+      \begin{equation}
+        F_n \;=\; \bigoplus_{\chi \in \hat{H}} F_\chi,
+      \end{equation}
+      where $F_\chi = \{v \in F_n : h \cdot v = \chi(h)\,v \;\forall\, h \in H\}$
+      and $\hat{H}$ denotes the character group of $H$.
+      If $|H| > 1$, this decomposition is non-trivial (there is more than one
+      $H$-eigenspace, since $F_n$ is not a direct sum of trivial $H$-representations
+      — $Z$ acts non-trivially on $F_n$ as the commutator of generators).
+
+      Each $H$-eigenspace $F_\chi$ is invariant under the full action of $G_n$:
+      for $g \in G_n$ and $v \in F_\chi$, and $h \in H \leq Z(G_n)$,
+      \begin{equation}
+        h \cdot (g \cdot v) \;=\; g \cdot (h \cdot v) \;=\; \chi(h)\,(g \cdot v),
+      \end{equation}
+      so $g \cdot v \in F_\chi$.
+      Therefore the decomposition $F_n = \bigoplus_\chi F_\chi$ is stable under all
+      of $G_n$, hence under admissible generators.
+      By Lemma~\ref{lem:non-factorisation}, this stable decomposition is forbidden.
+      Therefore $|H| = 1$, i.e.\ $\langle Z\rangle$ has no proper non-trivial
+      subgroup.
+      A cyclic group with no proper non-trivial subgroup is cyclic of prime order.
+      Hence $|Z| = q$ is prime.
+    \end{proof}
+
+  \subsection{Step 5: Identification $F_n \simeq V_\rho$}
+
+    \begin{proposition}
+      \label{prop:vrho}
+      $F_n$ is isomorphic to the Weil representation $V_\rho$ of
+      $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$.
+    \end{proposition}
+
+    \begin{proof}
+      By Propositions~\ref{prop:heisenberg-algebra} and~\ref{prop:prime},
+      $G_n \cong \mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ for a prime $q$.
+      By Lemma~\ref{lem:non-factorisation}, $F_n$ is an irreducible
+      $G_n$-representation.
+      It remains to identify which irreducible representation of
+      $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ it is.
+
+      By the discrete Stone--von Neumann theorem (see e.g.~\cite{Gerardin1977}),
+      $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ has, for each non-zero character
+      $c \in (\mathbb{Z}/q\mathbb{Z})^\times$, a unique irreducible representation
+      of dimension $q$ with central character $\chi_c \colon (0,0,\gamma) \mapsto
+      e^{2\pi ic\gamma/q}$.
+      All irreducible representations with non-trivial central character are of this
+      form (up to unitary equivalence), and they are all isomorphic to the Weil
+      representation~\eqref{eq:weil}.
+      In addition, $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ has $q^2$
+      one-dimensional representations (those factoring through the abelianisation),
+      but these are excluded by irreducibility of $F_n$ together with
+      $q \geq 2$ (since $\dim F_n \geq 2$ by Proposition~\ref{prop:commutator}:
+      a one-dimensional representation would be abelian, contradicting $[X,\sigma(X)] \neq 0$).
+
+      Born--Infeld parity forces $c \neq 0$~\cite{BornInfeld}: the parity involution
+      $\sigma\colon c \mapsto q-c$ has no fixed point in
+      $(\mathbb{Z}/q\mathbb{Z})^\times$ (since $q$ is odd prime and $q-c \not\equiv c$
+      for $c \not\equiv 0$), so any admissible character is non-trivial.
+      Therefore $F_n$ carries a non-trivial central character, and by the
+      Stone--von Neumann theorem, $F_n \simeq V_\rho$.
+    \end{proof}
+
+    \noindent
+    Propositions~\ref{prop:commutator}--\ref{prop:vrho} together constitute the
+    proof of Theorem~\ref{thm:main}. \hfill$\square$
+
+    \begin{remark}[Summary of the derivation chain]
+      \label{rem:chain}
+      The logical chain of Theorem~\ref{thm:main} is:
+      \begin{equation}
+        \begin{aligned}
+          \mathrm{A3}
+          &\;\Longrightarrow\; \text{no stable decomposition (Lem.~\ref{lem:non-factorisation})}
+          \;\Longrightarrow\; [X,\sigma(X)] \neq 0 \text{ (Prop.~\ref{prop:commutator})},\\
+          \mathrm{A1}
+          &\;\Longrightarrow\; \text{minimal generative closure}
+          \;\Longrightarrow\; Z \text{ central (Prop.~\ref{prop:central})},\\
+          \mathrm{A1}
+          &\;\Longrightarrow\; \text{no excess relation}
+          \;\Longrightarrow\; G_n \cong \mathrm{Heis}_3 \text{ (Prop.~\ref{prop:heisenberg-algebra})},\\
+          \mathrm{A3}
+          &\;\Longrightarrow\; \text{irreducibility}
+          \;\Longrightarrow\; |Z| = q \text{ prime (Prop.~\ref{prop:prime})},\\
+          \text{BI parity}
+          &\;\Longrightarrow\; c \neq 0
+          \;\Longrightarrow\; F_n \simeq V_\rho \text{ (Prop.~\ref{prop:vrho}).}
+        \end{aligned}
+      \end{equation}
+      Every arrow is either a direct consequence of an axiom or a classical
+      algebraic fact.
+      No external input is required beyond A1--A3 and Born--Infeld parity.
+    \end{remark}
+
+    \clearpage
+  \section{Corollaries}
+  \label{sec:corollaries}
+
+  \subsection{The uncertainty principle as a structural corollary}
+
+    \begin{corollary}[Heisenberg uncertainty principle]
+      \label{cor:uncertainty}
+      Under A1--A3 and Born--Infeld parity, conjugate admissible observables
+      $X$ and $\sigma(X)$ satisfy
+      \begin{equation}
+        \Delta X \cdot \Delta \sigma(X) \;\geq\; \tfrac{1}{2}\,|{\langle [X,\,\sigma(X)]\rangle}|
+        \;=\; \tfrac{1}{2}|\langle Z\rangle|
+        \;>\; 0.
+      \end{equation}
+      In particular, $X$ and $\sigma(X)$ cannot be simultaneously sharp.
+    \end{corollary}
+
+    \begin{proof}
+      By Proposition~\ref{prop:commutator}, $[X,\, \sigma(X)] = Z \neq 0$.
+      The standard Robertson uncertainty relation for unitary operators on a
+      Hilbert space gives the bound above.
+      The strict positivity follows from $Z \neq 0$.
+    \end{proof}
+
+    \begin{remark}[Uncertainty as a property of the non-resolved proto-state]
+      \label{rem:uncertainty-interpretation}
+      Corollary~\ref{cor:uncertainty} establishes that the Heisenberg uncertainty
+      principle is not a property of the observables per se, but a structural
+      consequence of A3 alone: the prohibition on premature resolution forces
+      $[X,\, \sigma(X)] \neq 0$, from which the uncertainty bound follows.
+      Equivalently, the uncertainty principle is the algebraic signature of the
+      fact that the proto-state is genuinely non-resolved: if the proto-state were
+      resolved (in the sense of carrying a stable sectorial decomposition), the
+      commutator would be zero and simultaneous sharp values would be possible.
+    \end{remark}
+
+  \subsection{Canonical quantisation as structural necessity}
+
+    \begin{corollary}[Canonical quantisation]
+      \label{cor:quantisation}
+      Under A1--A3 and Born--Infeld parity, the algebra of admissible observables
+      on $F_n$ is the canonical quantisation of the discrete symplectic space
+      $(\mathbb{Z}/q\mathbb{Z})^2$ with symplectic form $\omega(X,\,\sigma(X)) = Z$.
+    \end{corollary}
+
+    \begin{proof}
+      By Theorem~\ref{thm:main}, $G_n \cong \mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$
+      and $F_n \simeq V_\rho$.
+      The Heisenberg group is, by construction, the canonical quantisation of the
+      symplectic space $((\mathbb{Z}/q\mathbb{Z})^2,\, \omega)$, in the sense that
+      it is the unique group whose Lie algebra (or discrete analogue) encodes the
+      commutation relation $[X,\, \sigma(X)] = Z$ with $Z$ central and $\omega$
+      non-degenerate.
+      The Weil representation $V_\rho$ is the unique faithful irreducible
+      representation of this quantisation.
+    \end{proof}
+
+  \subsection{Relation to the O-series}
+
+    \begin{remark}[Non-abelian support from O23]
+      \label{rem:nonabelian}
+      Theorem~\ref{thm:main} is complementary to the result of~\cite{O23}, which
+      establishes via the Hurwitz classification that the admissible neutral sector
+      of $F_n$ is non-abelian (quaternionic).
+      The present paper establishes the group structure of $G_n$ directly from
+      A1--A3 without assuming the Hurwitz classification, using only the
+      commutation argument of Proposition~\ref{prop:commutator}.
+      The two derivations are therefore independent and mutually reinforcing:
+      O23 establishes why the neutral sector is quaternionic and three-dimensional;
+      the present paper establishes why the ambient symmetry group is Heisenberg
+      and the representation is the Weil representation.
+    \end{remark}
+
+    \clearpage
+  \section{Discussion}
+  \label{sec:discussion}
+
+  \subsection{What the theorem establishes}
+
+    Theorem~\ref{thm:main} establishes three things simultaneously.
+
+    First, it closes the identification $F_n \simeq V_\rho$, which was stated
+    as a structural remark in~\cite{Foundation} and as the target of open
+    question Q5 therein.
+    The space in which the proto-state lives between transitions is the Weil
+    representation $V_\rho$ of $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$,
+    uniquely determined by the axioms.
+    This space is real in the sense of the Cosmochrony framework — it is not
+    spatial, but it is not epistemic either: it is the space of structurally
+    admissible directions, induced by the admissibility constraints themselves.
+
+    Second, it derives canonical quantisation as a structural necessity rather
+    than a modelling choice.
+    The Heisenberg commutation relation $[X,\, \sigma(X)] = Z$ does not enter
+    as a postulate; it is forced by A3 via the non-factorisability lemma.
+    The imaginary unit and the complex Hilbert space structure follow from this
+    relation, not from an independent axiom.
+
+    Third, it resolves the open question Q6 of~\cite{Foundation}: the
+    Heisenberg uncertainty principle is derived as a corollary of A3 alone,
+    without any assumption about the nature of the observables.
+
+  \subsection{The single non-trivial input}
+
+    The proof rests on exactly one non-trivial structural claim: the admissible
+    non-factorisability lemma (Lemma~\ref{lem:non-factorisation}).
+    All other steps use standard algebraic tools (simultaneous diagonalisation,
+    group cohomology classification, Stone--von Neumann).
+
+    Lemma~\ref{lem:non-factorisation} itself is a direct formalisation of A3.
+    Its proof requires: (a) unitarity of the $G_n$ action (from the BI bound),
+    (b) the definition of admissible generators as constitutive of the
+    admissibility structure (A1), and (c) the prohibition on premature selection
+    (A3).
+    None of these is new: (a) is established in~\cite{BornInfeld}, (b) is the
+    content of A1, and (c) is A3.
+
+  \subsection{Open direction: the large-$q$ limit}
+
+    Theorem~\ref{thm:main} establishes the structure of $F_n$ at finite prime $q$.
+    The large-$q$ limit — in which $\mathbb{C}^q \to L^2(\mathbb{R})$ and the
+    Weil representation approaches the metaplectic representation of the real
+    Heisenberg group $\mathrm{Heis}_3(\mathbb{R})$ — is the subject of the
+    companion spectral geometry programme~\cite{Cosmochrony}.
+    The emergence of continuous spacetime geometry from the BFS shell structure
+    of $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ in the large-$q$ limit (with
+    homogeneous dimension $D = 4$ from the Bass--Guivarc'h theorem) remains an
+    open theorem.
+
+  \section*{Acknowledgements}
+
+  The author acknowledges the use of large language models as a supportive tool
+  for refining language, structure, and internal consistency during the development
+  of this manuscript.
+  All conceptual contributions, theoretical choices, and interpretations remain
+  the sole responsibility of the author.
+
+  \clearpage
+  \begin{thebibliography}{99}
+
+    \bibitem{Cosmochrony}
+    J.~Beau,
+    ``Cosmochrony: A Pre-Geometric Relational Framework for Emergent Physics,''
+    white paper, Zenodo (2026).
+    \doi{10.5281/zenodo.17957509}.
+
+    \bibitem{Foundation}
+    J.~Beau,
+    ``Admissible Non-Injective Transitions as the Primitive of Physical Description,''
+    Cosmochrony companion paper~M, Zenodo (2026).
+    \doi{10.5281/zenodo.19616329}.
+
+    \bibitem{ENI}
+    J.~Beau,
+    ``Non-Injectivity as a Structural Necessity of Genuine Emergence:
+    A No-Go Theorem for Faithful Emergent Descriptions,''
+    Cosmochrony companion paper~L, Zenodo (2026).
+    \doi{10.5281/zenodo.19391746}.
+
+    \bibitem{BornInfeld}
+    J.~Beau,
+    ``Bounded Relaxation and the Dynamical Selection of Spacetime Geometry,''
+    Cosmochrony companion paper~C, Zenodo (2026).
+    \doi{10.5281/zenodo.18407505}.
+
+    \bibitem{O23}
+    J.~Beau,
+    ``Three Stable Directions from Quaternionic Minimality:
+    Derivation of $\Sigma_c(n_3) = 3$ from Born--Infeld Fibre Admissibility,''
+    O23 spectral admissibility sub-programme paper, Zenodo (2026).
+    \doi{10.5281/zenodo.19375136}.
+
+    \bibitem{O27}
+    J.~Beau,
+    ``Quaternionic Rigidity of Admissible Morphisms:
+    Every Admissible $\Phi_{q,\rho}$ Necessarily Factors through $\mathfrak{su}(2)$,''
+    O27 spectral admissibility sub-programme paper, Zenodo (2026).
+    \doi{10.5281/zenodo.19489296}.
+
+    \bibitem{Q1}
+    J.~Beau,
+    ``From Admissibility to Quantum Structure:
+    Phase Coherence and Correlations from Non-Injective Projection,''
+    Cosmochrony companion paper~Q1, Zenodo (2026).
+    \doi{10.5281/zenodo.19561060}.
+
+    \bibitem{Brown1982}
+    K.~S.~Brown,
+    \textit{Cohomology of Groups},
+    Graduate Texts in Mathematics \textbf{87},
+    Springer, New York (1982).
+    \doi{10.1007/978-1-4684-9327-6}.
+
+    \bibitem{Gerardin1977}
+    P.~G\'erardin,
+    ``Weil representations associated to finite fields,''
+    \textit{Journal of Algebra} \textbf{46}, 54--101 (1977).
+    \doi{10.1016/0021-8693(77)90394-5}.
+
+  \end{thebibliography}
+
+\end{document}
