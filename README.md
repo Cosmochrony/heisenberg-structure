@@ -1,163 +1,333 @@
-**Quaternionic Rigidity of Admissible Morphisms:  
-Every Admissible Φ₍q,ρ₎ Necessarily Factors through su(2)**
+This repository contains the source of the **Heisenberg Structure Cosmochrony paper**  
+[*Non-Factorisability and the Emergence of Heisenberg Structure  
+from Admissibility Constraints*](out/HeisenbergStructure.pdf).
+
+This work provides the **structural derivation of the admissible fibre**, upgrading a
+previously stated identification into a full theorem.
+
+It addresses the following foundational question:
+
+> Given the admissibility axioms (A1–A3) and Born–Infeld parity,
+> what algebraic structure is necessarily realised by the admissible fibre $F_n$?
 
 ## Quick Summary
 
-This paper resolves a central open problem of the spectral admissibility programme:  
-the existence and structure of admissible morphisms
+The paper proves that the answer is unique and fully determined.
 
-Φ₍q,ρ₎ : V_q → V_ρ
+The admissible fibre is not an arbitrary structure.
 
-linking Weil representation spaces (Heisenberg side) to representation spaces of 2I ⊂ SU(2).
+It is **necessarily Heisenberg**.
 
-**Main result (rigidity theorem):**  
-Any morphism satisfying the three structural admissibility constraints is *forced* to factor through
+More precisely:
 
-su(2) ≃ Im ℍ
+- any finite, minimal, non-pre-resolved structure of observable directions
+  must carry a non-trivial commutator
+- this commutator is forced to be central
+- the resulting algebra is necessarily the Heisenberg algebra
+- the centre has prime order
+- the fibre is canonically identified with the Weil representation
+  \[
+  F_n \simeq V_\rho
+  \]
 
-The quaternionic structure is therefore **not a modelling choice**, but the **unique fixed point**
-compatible with:
-
-- involution equivariance (χ → −χ)
-- quadratic compatibility with σ_pair
-- admissibility naturality (Π-structure only)
-
-This upgrades O23 (dim = 3) into a **categorical universality statement**.
+This turns the appearance of the Heisenberg group from an empirical observation
+into a **structural theorem**.
 
 ## Context
 
-This paper sits at a critical point of the Cosmochrony programme:
+The foundational paper establishes that:
 
-- **O23**: establishes quaternionic minimality  
-  → dimℝ(Im ℍ) = 3
+- physical structure arises from admissible non-injective transitions
+- admissibility is governed by Axioms A1–A4
+- A3 forbids premature selection inside the admissible fibre
+- non-injectivity implies genuine multiplicity of admissible directions
 
-- **O24**: establishes the chain  
-  c_χ → δ_pair → β*
+The spectral admissibility programme (O-series) further establishes:
 
-- **O26**: introduces the representation-theoretic dictionary  
-  (σ_pair ↔ Hilbert–Schmidt norm) but assumes Φ₍q,ρ₎
+- the parity fibre $\{c, q-c\}$ (O18)
+- projection locking (O22)
+- quaternionic minimality and three stable directions (O23)
 
-👉 **This paper closes that gap**:  
-Φ₍q,ρ₎ is not just assumed — it is **forced and uniquely determined**.
+However:
 
-## Core Problem
+- the identification $F_n \simeq V_\rho$ was only stated, not proved
+- the emergence of a non-abelian structure was not derived from first principles
+- the Heisenberg group appeared as a model, not a necessity
 
-Does there exist a morphism
+This defines the scope of the present paper. :contentReference[oaicite:0]{index=0}
 
-Φ₍q,ρ₎ : V_q → V_ρ
+## Core Result
 
+The paper establishes that:
+
+> Under A1–A3 and Born–Infeld parity, the symmetry group of the admissible
+> fibre is isomorphic to $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ for a prime $q$,
+> and the fibre itself is isomorphic to the Weil representation $V_\rho$.
+
+Thus:
+
+- the Heisenberg structure is not assumed
+- it is **forced by admissibility**
+
+## Main Structural Results
+
+### 1. Admissible non-factorisability
+
+*Result.* Axiom A3 implies that the admissible fibre cannot be factorised
+into independent components.
+
+Thus:
+
+- no decomposition $F_n = F^{(1)} \oplus F^{(2)}$ is admissible
+- admissible directions remain intrinsically coupled
+- this forces the presence of a non-trivial commutator
+
+This is the single non-trivial input of the paper.
+
+### 2. Emergence of a non-trivial commutator
+
+*Result.* Non-factorisability implies the existence of generators $X, Y$
 such that:
+\[
+[X, Y] \neq 0.
+\]
 
-1. **Z₂-equivariance**  
-   c ↔ q − c
+Thus:
 
-2. **Quadratic compatibility**  
-   σ_pair(n) ∼ ‖Φ(v_c)‖² ‖Φ(v_{q−c})‖²
+- the admissible structure cannot be abelian
+- observable directions do not commute under admissible composition
 
-3. **Naturality**  
-   depends only on admissibility structure (Π, BI, Q₈)
+### 3. Centrality of the commutator
 
-## Main Result
+*Result.* Minimality and admissibility constraints force:
+\[
+[X, Y] = Z, \quad [X, Z] = [Y, Z] = 0.
+\]
 
-**Rigidity Theorem**
+Thus:
 
-Any Φ₍q,ρ₎ satisfying (1)–(3):
+- the commutator is central
+- the algebra is a central extension of an abelian structure
 
-- must factor through the admissible quotient  
-  H_eff = Im Π ∩ Ntrl
+### 4. Classification as Heisenberg algebra
 
-- and this quotient is **uniquely identified** with
+*Result.* By classification of finite nilpotent Lie algebras of class 2:
 
-  su(2)
+- the only compatible structure is the Heisenberg algebra
+- the centre must have prime order
 
-No alternative structure survives all constraints:
+Thus:
 
-| Candidate structure | (a) | (b) | (c) | Verdict            |
-|---------------------|-----|-----|-----|--------------------|
-| ℝⁿ (abelian)        | ✗   | ✗   | ✓   | excluded           |
-| ℂⁿ                  | ✓   | ✓   | ✗   | not canonical      |
-| generic Hilbert     | ✓   | ✓   | ✗   | pipeline-dependent |
-| ℍ / su(2)           | ✓   | ✓   | ✓   | **unique**         |
+\[
+\mathrm{Sym}(F_n) \simeq \mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})
+\]
 
-## Canonical Construction
+### 5. Identification with the Weil representation
 
-The morphism is explicitly constructed as:
+*Result.* By Stone–von Neumann:
 
-Φ₍q,ρ₎ = ρ ∘ ι ∘ π
+- there exists a unique irreducible representation of the Heisenberg group
+  with fixed central character
+- this representation is the Weil representation $V_\rho$
 
-and is:
+Thus:
 
-- unique up to unitary equivalence
-- fully determined by admissibility
+\[
+F_n \simeq V_\rho
+\]
 
-## Interpretation
+This completes the structural identification.
 
-This result closes the structural chain:
+## Foundational Chain
 
-emergence  
-→ non-injectivity  
-→ pair structure  
-→ quadratic observable  
-→ su(2)
+The derivation is fully internal:
 
-Consequences:
+Admissibility axioms (A1–A3)  
+$\to$ non-factorisability  
+$\to$ non-trivial commutator  
+$\to$ central extension  
+$\to$ Heisenberg algebra  
+$\to$ Weil representation
 
-- su(2) is **not postulated**, but **derived**
-- the quaternionic sector is the **minimal admissible non-abelian structure**
-- β* acquires a **representation-theoretic meaning**:
+No external quantum structure is postulated.
 
-  → scaling exponent of norm growth in su(2)
+## Mathematical Role of the Paper
 
-## Key Implications
+This paper provides:
 
-### 1. Uniqueness of the admissible target
+- a derivation of non-abelian structure from admissibility
+- a proof that the Heisenberg group is unavoidable
+- a canonical identification of the admissible fibre
+- a bridge between axioms and representation theory
 
-There is no freedom in choosing the representation space:  
-admissibility collapses all candidates to su(2).
+More precisely, it:
 
-### 2. Structural origin of SU(2)
+- turns a structural remark into a theorem
+- removes arbitrariness in the choice of fibre structure
+- grounds the appearance of canonical commutation relations
 
-SU(2) emerges as:
+## Epistemic Structure
 
-- the minimal non-commutative structure
-- compatible with non-factorisability (A3)
-- compatible with BI parity
+### Established input
 
-### 3. Closure of the O-series chain
+- admissibility axioms A1–A3
+- Born–Infeld parity
+- non-injectivity as structural necessity
+- minimality of admissible structure
 
-The previously empirical link
+### New results
 
-σ_pair → β*
+- admissible non-factorisability lemma
+- derivation of non-commutativity
+- proof of central extension
+- classification as Heisenberg algebra
+- prime order of the centre
+- identification $F_n \simeq V_\rho$
 
-is now:
+### Remaining open problems
 
-- geometrically grounded
-- representation-theoretically interpreted
+- extension to the large-$q$ (continuum) limit
+- relation to full Hilbert space structure
+- embedding into higher admissible sectors
+- explicit link with representation selection (O25–O27)
 
-## What This Paper Does NOT Do
+## Interpretation of the Result
 
-- Does not compute Φ₍q,ρ₎ numerically
-- Does not extend beyond the admissible sector
-- Does not derive full quantum mechanics (done in Q1)
+The conceptual shift is:
 
-## Open Problem
+- previous view: Heisenberg structure is a useful model
+- present result: Heisenberg structure is **forced**
 
-The remaining task is:
+Thus:
 
-→ explicit realisation of Φ₍q,ρ₎ in the spectral pipeline
+- non-commutativity is not postulated
+- canonical quantisation is not an input
+- the uncertainty principle becomes structural
 
-i.e.:
+## Corollaries
 
-- embedding construction
-- numerical verification
-- link with O26 effective dimension test
+### Uncertainty principle
 
-## Keywords
+The non-commutativity of generators implies:
 
-non-injective projection; admissible morphisms; quaternionic rigidity; su(2);  
-Weil representation; spectral admissibility; pair observable;  
-Born–Infeld constraint; emergence; representation theory
+- no simultaneous sharp resolution of conjugate directions
+- uncertainty is a property of the proto-state, not measurement
 
-## Reference
+### Canonical quantisation
 
-See full paper: :contentReference[oaicite:0]{index=0}
+The standard commutation relations arise as:
+
+- the algebraic structure of admissible directions
+- not as a rule imposed on observables
+
+## Structural Role in the Programme
+
+This paper provides the missing link between:
+
+- admissibility axioms (foundation)
+- spectral results (O-series)
+- quantum structure (Q1 and beyond)
+
+It establishes:
+
+- the algebra underlying admissible fibres
+- the necessity of non-abelian structure
+- the representation-theoretic backbone of the framework
+
+## What This Paper Adds
+
+- formalisation of admissible non-factorisability
+- derivation of non-commutativity
+- proof of Heisenberg structure
+- identification of the Weil representation
+- structural origin of uncertainty relations
+- removal of arbitrariness in fibre modelling
+
+## Outcome
+
+The admissible fibre is now:
+
+- structurally determined
+- non-abelian by necessity
+- Heisenberg in symmetry
+- Weil in representation
+
+The quantum algebraic structure is:
+
+- derived
+- intrinsic
+- unavoidable
+
+## Residual Open Problems
+
+### Large-$q$ limit
+
+Understand how the discrete Heisenberg structure lifts to continuous phase space.
+
+### Representation selection
+
+Identify which irreducible sector is physically realised in the spectral pipeline.
+
+### Higher structures
+
+Determine whether higher-rank or non-Heisenberg extensions can arise under relaxed constraints.
+
+### Integration with quantum sector
+
+Complete the bridge toward full Hilbert space reconstruction.
+
+## Status
+
+The programme now establishes:
+
+- axiomatic foundation of admissibility
+- emergence of non-injectivity
+- structural origin of irreversibility
+- derivation of Heisenberg structure
+
+The remaining steps concern:
+
+- representation selection
+- continuum limit
+- full quantum reconstruction
+
+## Repository Structure
+
+```text
+paper/
+├── out/      # Compiled PDF
+├── tex/      # LaTeX sources
+└── README.md
+```
+# Citation
+
+If you reference this work, please cite:
+
+J. Beau: Non-Factorisability and the Emergence of Heisenberg Structure
+from Admissibility Constraints
+Zenodo, 2026.
+
+# Acknowledgements
+
+Portions of the conceptual synthesis, structural organisation, and editorial refinement
+benefited from iterative interactions with large language models used as analytical assistants.
+
+All theoretical results, computations, and interpretations remain the sole responsibility
+of the author.
+
+# Contributions
+
+This repository is intended as a research reference.
+
+Critical feedback, independent verification, and further analysis of:
+
+- admissible non-factorisability
+- Heisenberg emergence
+- Weil representation structure
+- algebraic classification
+- large-$q$ behaviour
+
+are welcome.
+
+Please open an issue to discuss conceptual points, technical details, or possible
+extensions.
