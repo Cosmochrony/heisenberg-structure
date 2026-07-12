@@ -1,6 +1,6 @@
 This repository contains the source of the **Heisenberg Structure Cosmochrony paper**  
-[*Non-Factorisability and the Emergence of Heisenberg Structure  
-from Admissibility Constraints*](out/HeisenbergStructure.pdf).
+*Non-Factorisability and the Emergence of Heisenberg Structure  
+from Admissibility Constraints*.
 
 This work provides the **structural derivation of the admissible fibre**, upgrading a
 previously stated identification into a full theorem.
