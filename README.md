@@ -47,6 +47,19 @@ Class-two nilpotence, a specified central extension, or a non-degenerate
 symplectic commutator law would exclude the countermodel, but each is an
 additional selection input until independently derived.
 
+## Relation to positive constructions
+
+The obstruction is compatible with established positive reconstruction routes.
+A finite Abelian configuration group together with an irreducible transitive
+system of imprimitivity yields a discrete Weyl system through Mackey covariance.
+Alternatively, a supplied finite symplectic vector space defines its Heisenberg
+central extension, after which Stone–von Neumann and symplectic functoriality
+produce the Heisenberg and Weil representations.
+
+The audited admissibility contract supplies neither covariant localisation nor
+a non-degenerate symplectic form. These constructions therefore identify
+additional sufficient inputs rather than repairing the failed implication.
+
 ## Representation terminology
 
 Stone-von Neumann identifies the irreducible Heisenberg, or Schrödinger,

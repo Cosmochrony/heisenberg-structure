@@ -47,8 +47,8 @@ from Admissibility Constraints}
     unitary carrier, equipped with a minimally generating pair exchanged by an
     involution and having a non-trivial commutator, must have a central commutator.
     We disprove that implication by an explicit six-element countermodel.
-    Let $G=\Sym_3$, $X=(12)$, $Y=(23)$, and let $\sigma$ be conjugation by $(13)$.
-    The involution exchanges $X$ and $Y$, the pair minimally generates $G$, and
+    Let $G_n=\Sym_3$, $X=(12)$, $Y=(23)$, and let $\sigma$ be conjugation by $(13)$.
+    The involution exchanges $X$ and $Y$, the pair minimally generates $G_n$, and
     the standard action on the two-dimensional zero-sum subspace of
     $\mathbb{C}^3$ is faithful, unitary, and irreducible.
     Nevertheless, $[X,Y]$ is a non-trivial three-cycle and is not central.
@@ -112,6 +112,36 @@ from Admissibility Constraints}
     in~\cite{ENI}.
     None of these companion results supplies the missing class-two or central
     extension hypothesis used in the selection step.
+
+  \subsection{Relation to neighbouring constructions}
+  \label{sec:neighbouring}
+
+    The obstruction does not say that a finite Weyl--Heisenberg structure cannot
+    be selected from explicit structural inputs.
+    Mackey's imprimitivity programme gives a precise sufficient route.
+    For a finite Abelian configuration group $A$, an irreducible transitive
+    system of imprimitivity consists of a unitary representation $U$ and a
+    projection-valued localisation $E$ satisfying
+    \[
+      U(a)E(S)U(a)^{-1}=E(a^{-1}S).
+    \]
+    These data determine the finite quantum kinematics up to unitary equivalence
+    and yield the associated discrete Weyl system~\cite{StovicekTolar1984,Tolar2014}.
+
+    A complementary mathematical route starts with a finite symplectic vector
+    space $(V,\omega)$ over a field of odd characteristic.
+    Its non-degenerate alternating form defines a Heisenberg central extension;
+    Stone--von Neumann then fixes the irreducible Heisenberg representation, and
+    symplectic functoriality produces the associated Weil
+    representation~\cite{GurevichHadani2009}.
+
+    Both routes supply more typed structure than the audit contract used here.
+    The contract specifies neither a finite Abelian configuration space with
+    covariant localisation nor a symplectic vector space with a non-degenerate
+    form.
+    These neighbouring constructions therefore show what a positive selection
+    theorem can use without repairing the failed implication from minimal
+    generation alone.
 
   \subsection*{Organisation}
 
@@ -207,11 +237,11 @@ from Admissibility Constraints}
     $(a,b,\gamma)(a',b',\gamma') = (a+a',\, b+b',\, \gamma+\gamma'+ab')$
     admits an irreducible representation of dimension $q$, the Heisenberg or
     Schr\"odinger representation $\pi_c$, acting on the carrier
-    $V_\rho=L^2(\mathbb{Z}/q\mathbb{Z})\cong\mathbb{C}^q$ by
+    $\mathcal{H}_c=L^2(\mathbb{Z}/q\mathbb{Z})\cong\mathbb{C}^q$ by
     \begin{equation}
       \bigl(\pi_c(a,b,\gamma)\,f\bigr)(x)
       \;=\; e^{2\pi i c(\gamma + bx)/q}\,f(x - a).
-      \label{eq:weil}
+      \label{eq:heisenberg-representation}
     \end{equation}
     The central element $(0,0,1)$ acts as multiplication by $e^{2\pi ic/q} \neq 1$
     (because $c \neq 0$), so the central character is non-trivial.
@@ -425,39 +455,40 @@ from Admissibility Constraints}
       Class-two nilpotence must be assumed or derived independently.
     \end{remark}
 
-  \subsection{Classification data}
+  \subsection{A sufficient symplectic input}
 
-    \begin{proposition}[Conditional Heisenberg classification]
+    \begin{proposition}[Heisenberg group from supplied symplectic data]
       \label{prop:heisenberg-algebra}
       Let $q$ be an odd prime.
-      Suppose that, in addition to the audit contract, one supplies
+      Let $(V,\omega)$ be a two-dimensional symplectic vector space over
+      $\mathbb{F}_q$.
+      On the set $H(V)=V\times\mathbb{F}_q$, define
+      \begin{equation}
+        (v,z)(v',z')
+        =\bigl(v+v',z+z'+\tfrac12\omega(v,v')\bigr).
+        \label{eq:heisenberg-presentation}
+      \end{equation}
+      Then $H(V)$ is a group of order $q^3$ with
       \[
-        G_n/Z(G_n)\cong(\mathbb{Z}/q\mathbb{Z})^2,\qquad
-        Z(G_n)\cong\mathbb{Z}/q\mathbb{Z},
+        Z(H(V))=\{0\}\times\mathbb{F}_q,\qquad
+        [(v,z),(v',z')]=(0,\omega(v,v')).
       \]
-      class-two nilpotence, exponent $q$, and a non-degenerate alternating
-      commutator pairing.
-      Then the corresponding central-extension classification identifies a
-      finite Heisenberg group.
+      It is isomorphic to $\Heis(\mathbb{F}_q)$.
     \end{proposition}
 
     \begin{proof}
-      Under the stated hypotheses, $G_n$ has a presentation of the form
-      \begin{equation}
-        \bigl\langle X,\,\sigma(X),\,Z\ \big|\
-        [X,\sigma(X)]=Z,\ Z\text{ central},\
-        X^q=\sigma(X)^q=Z^q=1\bigr\rangle.
-        \label{eq:heisenberg-presentation}
-      \end{equation}
-      The non-degenerate alternating commutator pairing fixes the standard
-      symplectic extension class, yielding
-      $\Heis(\mathbb{Z}/q\mathbb{Z})$~\cite{Brown1982}.
-      The classification is valid after these extension data are supplied.
+      Bilinearity of $\omega$ gives associativity, and $(0,0)$ is the identity.
+      The inverse of $(v,z)$ is $(-v,-z)$ because $\omega(v,v)=0$.
+      Direct multiplication gives the stated commutator.
+      Non-degeneracy implies that an element $(v,z)$ commutes with all of $H(V)$
+      only when $v=0$, which gives the centre.
+      Choosing a symplectic basis of $V$ identifies the multiplication law with
+      the standard finite Heisenberg presentation~\cite{GurevichHadani2009}.
     \end{proof}
 
-    The audit contract does not itself specify the exponent, abelianisation,
-    cyclic centre, centrality, or non-degeneracy required by
-    Proposition~\ref{prop:heisenberg-algebra}.
+    Proposition~\ref{prop:heisenberg-algebra} is a construction from supplied
+    symplectic data.
+    The audit contract does not select $V$ or $\omega$.
 
   \subsection{The prime-order step}
 
@@ -511,7 +542,8 @@ from Admissibility Constraints}
     \begin{proof}
       This is the finite Stone--von Neumann theorem~\cite{GurevichHadani2009}.
       For each non-trivial central character, the irreducible representation is
-      unique up to unitary equivalence and is realised by~\eqref{eq:weil}.
+      unique up to unitary equivalence and is realised
+      by~\eqref{eq:heisenberg-representation}.
     \end{proof}
 
     The finite character involution $c\mapsto q-c$ presupposes a cyclic centre of
@@ -529,7 +561,8 @@ from Admissibility Constraints}
         \item a non-trivial commutator does not imply centrality, by
         Theorem~\ref{thm:main};
         \item a supplied Heisenberg group and central character imply
-        $F_n\simeq V_\rho$ as a Heisenberg representation, by Stone--von Neumann.
+        $F_n\simeq\mathcal{H}_c$ as a Heisenberg representation, by
+        Stone--von Neumann.
       \end{itemize}
       The missing edge is carrier selection, not the internal representation
       theory of a supplied carrier.
@@ -572,7 +605,7 @@ from Admissibility Constraints}
       \label{cor:quantisation}
       If the finite Heisenberg group, its non-degenerate symplectic pairing, and
       a non-trivial central character are supplied, then the carrier
-      $V_\rho$ realises the corresponding finite Weyl system.
+      $\mathcal{H}_c$ supports the corresponding finite Weyl system.
     \end{corollary}
 
     \begin{proof}
