@@ -2,6 +2,8 @@
   "bib_key": "Beau2026HeisenbergStructure",
   "web_url": "https://cosmochrony.org/science/non-injective/heisenberg-structure/",
   "main_tex": "tex/HeisenbergStructure.tex",
+  "version": "2.0.0",
+  "notes": "Version 2.0.0 — major corrective revision. This version supersedes version 1.1.1 and withdraws its claim that the admissibility contract selects a finite Heisenberg carrier. Minimal generation by an involutively exchanged pair, faithful irreducibility, unitarity, and a non-trivial commutator do not imply that the commutator is central: the integrated S3 countermodel satisfies the full extracted contract and violates centrality. The valid irreducibility-to-non-commutation result and the conditional Stone–von Neumann endpoint are retained. The revision also corrects the prime-order argument, distinguishes the Heisenberg carrier H_c from the associated Weil module V_rho, and identifies two sufficient positive routes based on covariant imprimitivity or supplied symplectic data. The previously separate countermodel note was withdrawn; its result is integrated and reviewed here.",
   "zenodo_id": 19635395,
   "doi": "10.5281/zenodo.19635395"
 }

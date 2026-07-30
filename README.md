@@ -3,6 +3,10 @@
 This repository contains the source of the Cosmochrony companion paper
 *A Finite Obstruction to Heisenberg Carrier Selection from Admissibility Constraints*.
 
+Version 2.0.0 is a major corrective revision that supersedes the former positive
+carrier-selection claim. The finite countermodel and the surviving conditional
+representation theory are integrated in this paper.
+
 ## Main result
 
 The paper tests the finite algebraic contract used to select the admissible carrier:
